@@ -10,3 +10,21 @@ jobs:
 
     - name: Builds the C# code
       run: dotnet build
+
+    - name: Runs the C# tests
+      run: dotnet test
+
+    - name: Go into dotnet folder
+      run: cd DotnetTemplate.Web
+
+    - name: Build TypeScript code
+      run: npm install
+      working-directory: DotnetTemplate.Web
+
+    - name: runs linter on TypeScript code
+      run: npm run lint
+      working-directory: DotnetTemplate.Web
+
+    - name: Run TypeScript tests
+      run: npm t
+      working-directory: DotnetTemplate.Web
